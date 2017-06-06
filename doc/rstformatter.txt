@@ -1,0 +1,115 @@
+*rstformatter.txt* reStructuredText formatting functions
+
+
+                 _    __                            _   _             ~
+        _ __ ___| |_ / _| ___  _ __ _ __ ___   __ _| |_| |_ ___ _ __  ~
+       | '__/ __| __| |_ / _ \| '__| '_ ` _ \ / _` | __| __/ _ \ '__| ~
+       | |  \__ \ |_|  _| (_) | |  | | | | | | (_| | |_| ||  __/ |    ~
+       |_|  |___/\__|_|  \___/|_|  |_| |_| |_|\__,_|\__|\__\___|_|    ~
+       
+              A lightweight Vim Plugin for formatting rst files.
+                                                              
+===============================================================================
+CONTENTS                                                *rstformatter-contents*
+    
+    1. Usage ................................. |RstformatterUsage|
+    2. Mappings .............................. |RstformatterMappings|
+        2.1 RstHeadlineFromChar .............. |RstHeadlineFromChar|
+        2.2 RstHeadlineUp .................... |RstHeadlineUp|
+        2.2 RstHeadlineDown .................. |RstHeadlineDown|
+    3. Configuration ......................... |RstformatterConfiguration|
+        3.1. g:rstformatter_default_keys ..... |rstformatter_default_keys|
+    4. License ............................... |RstformatterLicense|
+    5. Bugs .................................. |RstformatterBugs|
+    6. Contributing .......................... |RstformatterContribute|
+    7. Changelog ............................. |RstformatterChangelog|
+
+===============================================================================
+1. Usage                                                    *RstformatterUsage*
+
+The :Headline command transforms a line in your file to a reStructuredText
+Headline. You will be prompted for a char to use for underlining.
+
+===============================================================================
+2. Mappings                                              *RstformatterMappings*
+
+Rstformatter defines a mapping to make a line in your rst file a headline:
+
+
+-------------------------------------------------------------------------------
+2.1 RstHeadlineFromChar                                   *RstHeadlineFromChar*
+
+Bound to: <localleader>rhc
+
+Prompts for a character to use for underlining. Places a line the length of
+your current line below the current line using that character.
+
+
+-------------------------------------------------------------------------------
+2.2 RstHeadlineUp                                               *RstHeadlineUp*
+
+Bound to: <localleader>rhu
+
+Promotes an existing headline one level. If the line is not yet a valid
+headline, creates a top level headline. If it is already a top level headline,
+it remains unchanged.
+
+
+-------------------------------------------------------------------------------
+2.3 RstHeadlineDown                                           *RstHeadlineDown*
+
+Bound to: <localleader>rhd
+
+Demotes an existing headline one level. If the line is not yet a valid
+headline, creates a top level headline. If it is already a bottom level
+headline, it becomes a top level headline.
+
+
+===============================================================================
+3. Configuration                                    *RstformatterConfiguration*
+
+You can tweak the behaviour of Rstformatter by setting the following
+variable(s) in your .vimrc.
+
+
+-------------------------------------------------------------------------------
+3.1 g:restformatter_headline_chars
+
+A list containing the heading characters in hierarchichal order. Defaults to
+['=', '-', '^', '"'] according to the hierarchy common for sphinx
+documentation. You can change this in your .vimrc
+
+-------------------------------------------------------------------------------
+3.2 g:restformatter_default_keys                    *rstformatter_default_keys*
+
+Set this to 0 if you don't want to use the default mappings detailed in 
+|RstformatterMappings|
+
+Default: 1
+
+
+===============================================================================
+4. License                                                *RstformatterLicense*
+
+GPLv3+
+
+
+===============================================================================
+5. Bugs                                                      *RstformatterBugs*
+
+The first two hierarchy levels of Sphinx documentation ('#' and '*' with
+overline) were intentionally left out in the first release as I didn't want to
+bother with overlines and don't use them that often.
+They'll probably be part of a future release.
+
+
+===============================================================================
+6. Contributing                                        *RstformatterContribute*
+
+
+===============================================================================
+7. Changelog                                            *RstformatterChangelog*
+
+v0.1.0 Initial release
+
+vim:tw=78:ts=8:ft=help:norl:
